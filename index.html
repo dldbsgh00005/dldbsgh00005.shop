@@ -3,9 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SUPERSUPERBINARYSEARCH</title>
+  <title>SUPER SUPER BINARY SEARCH</title>
 </head>
 <body>
+
+  <div>
+    <span>Info</span> <br>
+    <span>게임 시작 버튼을 누르면 게임 시작 (정답이 새로고침 됩니다.)</span>
+    <span>입력창에 값을 입력 후 정답 제출 버튼을 누르면 정답 제출</span>
+    <span>제출 버튼을 1번 누를 때마다 정답 시도 횟수 +1 </span>
+    <!-- <span>제한시간 1분 내에 정답을 맞추지 못할시 정답 시도를 적게한 사람이 승리!</span> -->
+    <span>화이팅 하세요!!!</span>
+  </div>
+
 
   <button onclick="start()" >게임 시작</button>
   
@@ -14,11 +24,15 @@
   <button onclick="submit()" >정답 제출</button>
   </div>
 
+
   <script>
     let answer = -1 // answer 
 
+    let count = -1 // how long did it take
+
     const start = () => {
       answer = Math.ceil((Math.random()*100)+1) // 1~100사이의 수 랜덤 뽑기
+      count = 0
       console.log(answer)
     }
 
@@ -28,8 +42,9 @@
       console.log("inputValue : "+inputValue)
       console.log("answer : "+answer)
       if(inputValue == answer){
-        confirm("정답입니다!!")
+        confirm(`정답입니다!! ${count}회 걸렸네요! `)
       }else{
+        count +=1
         if(inputValue > answer) {confirm("DOWN!")}
         else if(inputValue < answer) {confirm("UP!")}
       }
@@ -38,20 +53,24 @@
 
     
   </script>
-  <footer>
-    <div>version 1.0.0
-      <ul>First Deployment (create)
-          <li> Start Function</li>
-          <li> Submit Function</li>
-      </ul>
-    </div>
-    <div>version 1.0.1
-      <ul>Second Deployment (update)
-          <li> create UP,DOWN function</li>
-      </ul>
-    </div>
-
-
-  </footer>
+  
 </body>   
+
+<footer>
+  <div>version 1.0.0
+    <ul>First Deployment (create)
+        <li> Start Function</li>
+        <li> Submit Function</li>
+    </ul>
+  </div>
+  <div>version 1.0.1
+    <ul>Second Deployment (update)
+        <li> create UP,DOWN function (contributor name : Jeongbin Kang, ChaeYeon Lim)</li>
+        <li> create count attempt number function (contributor name : Jeongbin Kang, ChaeYeon Lim)</li>
+        <li> Some Menual (contributor name : Jeongbin Kang, ChaeYeon Lim)</li>
+    </ul>
+  </div>
+
+
+</footer>
 </html>
