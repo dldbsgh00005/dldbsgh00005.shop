@@ -22,8 +22,10 @@
 
   </div>
 
+  <h4 id="restTime" >남은 시간 : 60초</h4>
 
-  <button onclick="start()">게임 시작</button>
+
+  <button  id="start" onclick="start()">게임 시작</button>
 
   <div>
     <input type="text" name="input">
@@ -33,14 +35,26 @@
 
   <script>
     let answer = -1 // answer 
-
     let count = -1 // how long did it take
+    let time = 60 // rest time to end
+
+    const start_btn = querySelector('button[id="start"]')
 
     const start = () => {
       answer = Math.ceil((Math.random() * 100) + 1) // 1~100사이의 수 랜덤 뽑기
       count = 0
       console.log(answer)
     }
+
+    start_btn.addEventListener('click', ()=>{
+      setInterval(() => {
+        count -= 1
+      }, 1000);
+    })
+    
+
+
+
 
     // let inputValue = document.querySelector('input[name="input"]').value
     const submit = () => {
