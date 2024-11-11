@@ -23,35 +23,17 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Generate more leads with a professional landing page!</h1>
+                            <h1 class="mb-5" id="restTime >Time : 60초</h1>
                             
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Email address input-->
+<!--                             <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN"> -->
                                 <div class="row">
                                     <div class="col">
-                                        <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+                                        <input class="form-control form-control-lg" id="emailAddress" name="input" type="text" placeholder="정답을 입력 해주세요" />
                                     </div>
-                                    <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                                    <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" onclick="submit()" >정답 제출</button></div>
                                 </div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        <p>To activate this form, sign up at</p>
-                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            </form>
+                                <button  id="start" onclick="start()">게임 시작</button>
+<!--                             </form> -->
                         </div>
                     </div>
                 </div>
@@ -91,7 +73,7 @@
     let answer = -1 // answer 
     let count = -1 // how long did it take
     let time = -1 // rest time to end
-    let restTime = document.querySelector('h4[id="restTime"]')
+    let restTime = document.querySelector('h1[id="restTime"]')  // h4
     let interval;
     const start = () => {
       answer = Math.ceil((Math.random() * 100) + 1) // 1~100사이의 수 랜덤 뽑기
