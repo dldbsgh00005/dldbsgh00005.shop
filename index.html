@@ -55,7 +55,7 @@
         count -= 1
         restTime.innerHTML = `Time : ${count}초`
         console.log(count)
-        if(count == 0){clearInterval()}
+        if(count == 59){clearInterval(start)}
       }, 1000);
     }
 
