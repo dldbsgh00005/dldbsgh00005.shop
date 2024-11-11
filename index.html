@@ -22,7 +22,7 @@
 
   </div>
 
-  <h4 id="restTime" ></h4>
+  <h4 id="restTime" >Time : 60초</h4>
 
 
   <button  id="start" onclick="start()">게임 시작</button>
@@ -42,7 +42,7 @@
     
     const start = () => {
       answer = Math.ceil((Math.random() * 100) + 1) // 1~100사이의 수 랜덤 뽑기
-      count = 0
+      count = 60
       restTime = `Time : ${count}`
       console.log(answer)
     }
