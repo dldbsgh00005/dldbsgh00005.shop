@@ -58,6 +58,16 @@
             </div>
         </header>
 
+         <h4 id="restTime" >Time : 60초</h4>
+
+
+  <button  id="start" onclick="start()">게임 시작</button>
+
+  <div>
+    <input type="text" name="input">
+    <button onclick="submit()">정답 제출</button>
+  </div>
+
         <h3> 💡Info </h3>
   <div id="info">
       <ul>
@@ -76,5 +86,48 @@
         <script src="js/scripts.js"></script>
       
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+         <script>
+    let answer = -1 // answer 
+    let count = -1 // how long did it take
+    let time = -1 // rest time to end
+    let restTime = document.querySelector('h4[id="restTime"]')
+    let interval;
+    const start = () => {
+      answer = Math.ceil((Math.random() * 100) + 1) // 1~100사이의 수 랜덤 뽑기
+      count = 0
+      time = 60
+      console.log(answer)
+      interval = setInterval(() => {
+        time -= 1
+        updateRestTime(time)
+        if(time <= 0){
+          clearInterval(interval)
+          alert("게임 종료! 상대와 시도 횟수를 비교하새요! \n더 작은 사람의 승리입니다!")
+        }
+      }, 1000);
+      
+    }
+    
+    const updateRestTime = (timeLeft) => {
+      restTime.innerHTML = `Time : ${timeLeft}초`;
+    }
+    
+    const submit = () => {
+      let inputValue = document.querySelector('input[name="input"]').value
+      if (inputValue == answer) {
+        count += 1
+        confirm(`정답입니다! \n 시도 횟수 : ${count}회 `)
+        clearInterval(interval)
+       } else {
+        count += 1
+        if (inputValue > answer) { confirm("DOWN!") }
+        else if (inputValue < answer) { confirm("UP!") }
+      }
+    }
+
+
+
+  </script>
     </body>
 </html>
