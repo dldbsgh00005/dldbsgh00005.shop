@@ -24,7 +24,7 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 class="mb-5" id="restTime >Time : 60초</h1>
-                            
+                            <form>
                                 <div class="row">
                                     <div class="col">
                                         <input class="form-control form-control-lg" id="emailAddress" name="input" type="text" placeholder="정답을 입력 해주세요" />
@@ -32,6 +32,7 @@
                                     <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" onclick="submit()" >정답 제출</button></div>
                                 </div>
                                 <button  id="start" onclick="start()">게임 시작</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -48,6 +49,9 @@
     <button onclick="submit()">정답 제출</button>
   </div>
 
+
+ <div class="row justify-content-center">
+                    <div class="col-xl-6">
         <h3> 💡Info </h3>
   <div id="info">
       <ul>
@@ -59,6 +63,9 @@
     </ul>
 
   </div>
+
+    </div>
+     </div>
        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
