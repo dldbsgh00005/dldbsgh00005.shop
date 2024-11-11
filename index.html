@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUPER SUPER BINARY SEARCH</title>
+   <!-- Favicon-->
+   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+   <!-- Bootstrap icons-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+   <!-- Google fonts-->
+   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+   <!-- Core theme CSS (includes Bootstrap)-->
+   <link href="css/styles.css" rel="stylesheet" />
+  <style>
+    #info {
+      border : 2px Solid Black;
+      border-radius : 20%;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h3> 💡Info </h3>
+  <div id="info">
+      <ul>
+      <li>게임 시작 버튼을 누르면 게임 시작 (정답이 새로고침 됩니다.)</li> <br>
+      <li>입력창에 값을 입력 후 정답 제출 버튼을 누르면 정답 제출</li> <br>
+      <li>제출 버튼을 1번 누를 때마다 정답 시도 횟수 +1 </li> <br>
+      <li>제한시간 1분 내에 정답을 맞추지 못할시 정답 시도를 적게한 사람이 승리!</li> <br>
+      <li>화이팅 하세요!!!</li> <br>
+    </ul>
+
+  </div>
+
+  <!-- bootstrap form -->
+  <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
+    <!-- Email address input-->
+    <div class="row">
+        <div class="col">
+            <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
+            <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
+            <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+        </div>
+        <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+    </div>
+    <!-- Submit success message-->
+    <!---->
+    <!-- This is what your users will see when the form-->
+    <!-- has successfully submitted-->
+    <div class="d-none" id="submitSuccessMessage">
+        <div class="text-center mb-3">
+            <div class="fw-bolder">Form submission successful!</div>
+            <p>To activate this form, sign up at</p>
+            <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+        </div>
+    </div>
+    <!-- Submit error message-->
+    <!---->
+    <!-- This is what your users will see when there is-->
+    <!-- an error submitting the form-->
+    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+</form>
+
+
+
+
+  <h4 id="restTime" >Time : 60초</h4>
+
+
+  <button  id="start" onclick="start()">게임 시작</button>
+
+  <div>
+    <label for="input">정답 입력 : </label>
+    <input type="text" name="input"  id="input">
+    <button onclick="submit()">정답 제출</button>
+  </div>
+
+
+  <script>
+    let answer = -1 // answer 
+    let count = -1 // how long did it take
+    let time = -1 // rest time to end
+    let restTime = document.querySelector('h4[id="restTime"]')
+    let interval;
+    const start = () => {
+      answer = Math.ceil((Math.random() * 100) + 1) // 1~100사이의 수 랜덤 뽑기
+      count = 0
+      time = 60
+      console.log(answer)
+      interval = setInterval(() => {
+        time -= 1
+        updateRestTime(time)
+        if(time <= 0){
+          clearInterval(interval)
+          alert("게임 종료! 상대와 시도 횟수를 비교하새요! \n더 작은 사람의 승리입니다!")
+        }
+      }, 1000);
+      
+    }
+    
+    const updateRestTime = (timeLeft) => {
+      restTime.innerHTML = `Time : ${timeLeft}초`;
+    }
+    
+    const submit = () => {
+      let inputValue = document.querySelector('input[name="input"]').value
+      if (inputValue == answer) {
+        count += 1
+        confirm(`정답입니다! \n 시도 횟수 : ${count}회 `)
+        clearInterval(interval)
+       } else {
+        count += 1
+        if (inputValue > answer) { confirm("DOWN!") }
+        else if (inputValue < answer) { confirm("UP!") }
+      }
+    }
+
+
+
+  </script>
+
+</body>
+
+<footer>
+  <hr style="border: 2px solid black ;" >
+  <div>version 1.0.0
+    <ul>First Deployment (create)
+      <li> Start Function</li>
+      <li> Submit Function</li>
+    </ul>
+  </div>
+  <div>version 1.0.1
+    <ul>Second Deployment (update)
+      <li> create up,down function (contributor name : Jeongbin Kang, ChaeYeon Lim)</li>
+      <li> create count attempt number function (contributor name : Jeongbin Kang, ChaeYeon Lim)</li>
+      <li> some menual (contributor name : Jeongbin Kang, ChaeYeon Lim)</li>
+    </ul>
+  </div>
+
+
+</footer>
+
+</html>
