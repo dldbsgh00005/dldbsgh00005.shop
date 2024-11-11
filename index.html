@@ -49,35 +49,24 @@
     const start = () => {
       answer = Math.ceil((Math.random() * 100) + 1) // 1~100사이의 수 랜덤 뽑기
       count = 60
-      restTime.innerHTML = `Time : ${count}`
       console.log(answer)
       const interval = setInterval(() => {
         count -= 1
-        restTime.innerHTML = `Time : ${count}초`
-        console.log(count)
+        updateRestTime(count)
         if(count == 58){clearInterval(interval)}
       }, 1000);
       confirm("게임 종료! 상대와 시도 횟수를 비교하새요! \n
         더 작은 사람의 승리입니다!")
     }
-
-    // start_btn.addEventListener('click', ()=>{
-      // setInterval(() => {
-         // count -= 1
-  //      console.log(count)
-    //  }, 1000);
-  //  })
     
-
-
-
-
-    // let inputValue = document.querySelector('input[name="input"]').value
+    const updateRestTime = (timeLeft) => {
+      restTimeElement.innerHTML = `Time : ${timeLeft}초`;
+    }
+    
     const submit = () => {
       let inputValue = document.querySelector('input[name="input"]').value
-      console.log("inputValue : " + inputValue)
-      console.log("answer : " + answer)
       if (inputValue == answer) {
+        count += 1
         confirm(`정답입니다! \n 시도 횟수 : ${count}회 `)
       } else {
         count += 1
