@@ -30,7 +30,8 @@
       if(inputValue == answer){
         confirm("정답입니다!!")
       }else{
-        confirm("땡!")
+        if(inputValue > answer) {confirm("DOWN!")}
+        else if(inputValue < answer) {confirm("UP!")}
       }
     }
 
