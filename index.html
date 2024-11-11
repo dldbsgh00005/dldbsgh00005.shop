@@ -53,10 +53,13 @@
       const interval = setInterval(() => {
         count -= 1
         updateRestTime(count)
-        if(count == 58){clearInterval(interval)}
-      }, 1000);
-      confirm("게임 종료! 상대와 시도 횟수를 비교하새요! \n
+        if(count <= 55){
+          clearInterval(interval)
+          alert("게임 종료! 상대와 시도 횟수를 비교하새요! \n
         더 작은 사람의 승리입니다!")
+        }
+      }, 1000);
+      
     }
     
     const updateRestTime = (timeLeft) => {
