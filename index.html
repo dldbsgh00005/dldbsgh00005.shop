@@ -19,11 +19,12 @@
 
   <h2> 💡Info </h2>
   <div id="info">
-      <ul>
+    <ul>
+      <li>1~100 자연수인 숫자를 맞히는 게임</li> <br>
       <li>게임 시작 버튼을 누르면 게임 시작 (정답이 새로고침 됩니다.)</li> <br>
       <li>입력창에 값을 입력 후 정답 제출 버튼을 누르면 정답 제출</li> <br>
       <li>제출 버튼을 1번 누를 때마다 정답 시도 횟수 +1 </li> <br>
-      <!-- <li>제한시간 1분 내에 정답을 맞추지 못할시 정답 시도를 적게한 사람이 승리!</li> <br> -->
+      <li>제한시간 1분 내에 정답을 맞추지 못할시 정답 시도를 적게한 사람이 승리!</li> <br>
       <li>화이팅 하세요!!!</li> <br>
     </ul>
 
@@ -56,7 +57,8 @@
         updateRestTime(time)
         if(time <= 0){
           clearInterval(interval)
-          alert("게임 종료! 상대와 시도 횟수를 비교하새요! \n더 작은 사람의 승리입니다!")
+          alert(`게임 종료! 상대와 시도 횟수를 비교하새요! \n더 작은 사람의 승리입니다! \n 시도 횟수 : ${count}회`)
+          console.log(`게임 종료! 상대와 시도 횟수를 비교하새요! \n더 작은 사람의 승리입니다! \n 시도 횟수 : ${count}회`)
         }
       }, 1000);
       
@@ -71,6 +73,7 @@
       if (inputValue == answer) {
         count += 1
         confirm(`정답입니다! \n 시도 횟수 : ${count}회 `)
+        console.log(`정답입니다! \n 시도 횟수 : ${count}회 `)
         clearInterval(interval)
        } else {
         count += 1
